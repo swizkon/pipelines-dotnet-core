@@ -29,8 +29,8 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'Visual Studio Professional (c1d44cb3-8b8b-4c17-bd3a-dffeb33b7332)'
+    azureSubscription: '$(AzureSubscription)'
     appType: 'webApp'
-    appName: 'teamy20180129084647'
+    appName: '$(WebAppName)'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
