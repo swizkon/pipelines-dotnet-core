@@ -34,7 +34,5 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Visual Studio Professional (c1d44cb3-8b8b-4c17-bd3a-dffeb33b7332)'
     appType: 'webApp'
-    WebAppName: 'dotnetcore20171122095238'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    enableCustomDeployment: true
-    DeploymentType: 'webDeploy'
+    WebAppName: 'teamy20180129084647'
+    packageForLinux: '$(System.ArtifactStagingDirectory)/**/*.zip'
