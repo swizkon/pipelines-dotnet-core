@@ -12,11 +12,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+
 steps:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: restore
-    projects: '**/*.csproj'
 
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
@@ -25,8 +22,8 @@ steps:
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    publishWebProjects: false
+    arguments: '--configuration $(BuildConfiguration) --output $(System.DefaultWorkingDirectory)'
     zipAfterPublish: true
 
 - task: AzureRmWebAppDeployment@4
@@ -35,4 +32,4 @@ steps:
     azureSubscription: 'Visual Studio Professional (c1d44cb3-8b8b-4c17-bd3a-dffeb33b7332)'
     appType: 'webApp'
     WebAppName: 'teamy20180129084647'
-    packageForLinux: '$(System.ArtifactStagingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
