@@ -26,10 +26,11 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(System.DefaultWorkingDirectory)'
     zipAfterPublish: true
 
-- task: AzureRmWebAppDeployment@4
+
+- task: AzureWebApp@1
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'Visual Studio Professional (c1d44cb3-8b8b-4c17-bd3a-dffeb33b7332)'
     appType: 'webApp'
-    WebAppName: 'teamy20180129084647'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    appName: 'teamy20180129084647'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
